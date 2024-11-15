@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İrem Nur KIVIRCIK Portföy</title>
+    <link rel="shortcut icon" href="img/ikon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo"> İrem Nur KIVIRCIK</a>
+      <i class="bi bi-list" id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="index.html"> Ana Sayfa</a>
+        <a href="about.html" class="active"> Hakkımda</a>
+        <a href="education.html"> Eğitim</a>
+        <a href="projects.html"> Projeler</a>
+        <a href="contact.html"> İletişim</a>
+      </nav>
+    </header>
+    <section class="about" id="about">
+      <h2 class="heading">HAKKIMDA</h2>
+      <div class="about-content">
+        <h3>Bilgisayar Mühendisliği 4.sınıf öğrencisiyim.</h3>
+        <p>
+          5 Mayıs 2001 yılında Rize'nin Çayeli ilçesinde dünyaya geldim.
+          İlkokul, ortaokul ve lise eğitimlerimi Çayeli'nde tamamladım. Müzik
+          dinlemeyi, arkadaşlarımla vakit geçirmeyi seviyorum
+          <span id="dots">...</span
+          ><span id="more" style="display: none">
+            <br />Recep Tayyip Erdoğan Üniversitesi, bilgisayar mühendisliği
+            bölümü 4. sınıf öğrencisiyim. <br />
+            Recep Tayyip Erdoğan Üniversitesi Yabancı Diller Yüksekokulu
+            tarafından verilen B1+ seviye İngilizce Hazırlık Eğitimini 83 puan
+            ile tamamladım. Şu anda genel ağırlık not ortalamam ise 2.89 dur.
+            <br />60 günlük zorunlu stajımın ilk 30 gününü İstanbul Göztepede
+            bulunan Sigorta Bilgi ve Gözetim Merkezi'nde tamamladım. Burada Java
+            programlama dilini kullandım. Diğer 30 günlük stajımı da Enerji
+            Piyasaları Anonim Şirketi'nde yaptım. Burada da Java programlama
+            dilini kullandım. Staj sürem boyunca Spring Boot Ageile
+            metodolojisiyle çalıştım.<br />
+            Bilgisayar teknolojilerine olan tutkum ve merakım, beni bu alanda
+            kendimi geliştirmeye ve ilerlemeye teşvik etti. Hedeflerim arasında,
+            bilgisayar mühendisliği alanında başarılı bir kariyer yapmak ve
+            sektördeki yenilikleri takip ederek sürekli kendimi güncel tutmak
+            bulunmaktadır.
+          </span>
+        </p>
+        <button onclick="morOrLess()" id="btn" class="btn">
+          Daha Fazla Göster
+        </button>
+        <div class="gallery-container">
+          <div class="gallery">
+            <a href="img/iremnur3.jpg" target="_blank">
+              <img src="img/iremnur3.jpg" alt="irem nur kıvırcık" />
+            </a>
+          </div>
+          <div class="gallery">
+            <a href="img/iremnur4.jpg" target="_blank">
+              <img src="img/iremnur4.jpg" alt="irem nur kıvırcık" />
+            </a>
+          </div>
+          <div class="gallery">
+            <a href="img/iremnur5.jpg" target="_blank">
+              <img src="img/iremnur5.jpg" alt="iremnur kıvırcık" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

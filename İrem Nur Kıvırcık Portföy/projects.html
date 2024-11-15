@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İrem Nur KIVIRCIK Portföy</title>
+    <link rel="shortcut icon" href="img/ikon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="logo"> İrem Nur KIVIRCIK</a>
+      <i class="bi bi-list" id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="index.html"> Ana Sayfa</a>
+        <a href="about.html" class="active"> Hakkımda</a>
+        <a href="education.html"> Eğitim</a>
+        <a href="projects.html"> Projeler</a>
+        <a href="contact.html"> İletişim</a>
+      </nav>
+    </header>
+    <section class="projects" id="projects">
+      <h2 class="heading">PROJELERİM</h2>
+      <div class="project-content">
+        <div class="filter">
+          <i class="bi bi-search"></i>
+          <input
+            type="text"
+            id="inputFilter"
+            placeholder="Aramak istediğiniz kelime"
+          />
+        </div>
+        <button onclick="sortList()" class="btn">
+          Alfabetik Harf Sırasında Sırala
+        </button>
+        <ul id="project-product">
+          <li class="project-item">
+            <h3>Policy Management System</h3>
+            <p>
+              Bu proje Spring Boot Gradle Java projesi . Bu proje kapsamında iş
+              akışını daha verimli hale getirmek için Agile Scrum metodolojisi,
+              Scrum Board olarak jira kullandım. Sürüm kontrol ve kaynak
+              kodların yönetimi için Bitbucket ayrıca veri tabanı işlemleri için
+              PostgreSQL kullandım.
+              <br />Proje kapsamında kullanıcı uygulamaya kayıtlı değilse önce
+              kaydolup daha sonra uygulamaya giriş yapabilir. Uygulamaya poliçe
+              ekleyebilir, silebilir ve eklenen poliçeleri düzenleyebilir.
+            </p>
+            <div class="gallery-container">
+              <div class="gallery">
+                <img src="img/Resim1.png" alt="Poliçeleri görüntüleme ekranı" />
+                <div class="description">Poliçeleri Görüntüleme Ekranı</div>
+              </div>
+              <div class="gallery">
+                <img src="img/Resim2.png" alt="Poliçe ekleme ekranı" />
+                <div class="description">Poliçe Ekleme Ekranı</div>
+              </div>
+              <div class="gallery">
+                <img src="img/Resim3.png" alt="Kullanıcı giriş yapma ekranı" />
+                <div class="description">Kullanıcı Giriş Yapma Ekranı</div>
+              </div>
+            </div>
+          </li>
+
+          <li class="project-item">
+            <h3>Energy Management System</h3>
+            <p>
+              Bu proje Spring Boot Gradle Java projesi . Bu proje kapsamında iş
+              akışını daha verimli hale getirmek için Agile Scrum metodolojisi,
+              Scrum Board olarak jira kullandım. Sürüm kontrol ve kaynak
+              kodların yönetimi için GitHub ayrıca veri tabanı işlemleri için
+              PostgreSQL kullandım.
+              <br />
+              Bu projenin frontend arayüzü henüz yapılmamıştır. Java da konsol
+              uygulaması olarak çalışmaktadır. Uygulamanın temel amacı, 3
+              zamanlı sayaçlara göre elektronik cihazların hangi saat aralığında
+              kullanıldığında ne kadar güç harcadığını, enerji tüketimini ve
+              ücret hesaplamasını yapmaktır.
+              <br />
+              Projede mikroservis mimarisi kullanılmıştır. Yazılım dünyasında
+              yaygın olarak kullanılan "Kafka, FlyWay, Fake Smtp" gibi bir çok
+              teknoloji entegrasyonu sağlanmıştır.
+            </p>
+            <div class="gallery-container">
+              <div class="gallery">
+                <img src="img/Resim4.png" alt="Kullanıcı Oluşturma" />
+                <div class="description">Kullanıcı Oluşturma</div>
+              </div>
+              <div class="gallery">
+                <img
+                  src="img/Resim5.png"
+                  alt="Elektronik cihaz için hesaplamalar"
+                />
+                <div class="description">
+                  Elektronik Cihaz İçin Hesaplamalar
+                </div>
+              </div>
+              <div class="gallery">
+                <img src="img/Resim6.png" alt="Resim 6" />
+                <div class="description">Ürün Bulunamadığına Dair Hata</div>
+              </div>
+            </div>
+          </li>
+
+          <li class="project-item">
+            <h3>Akciğer Hastalıklarının Tespiti</h3>
+            <p>
+              Akciğer hastalıklarının teşhisinde, sınırlı görüntü sayısı, hasta
+              şikayetlerinin çeşitliliği ve doktorların zaman kısıtları gibi
+              zorluklar mevcuttur. Hastalık teşhisi, yaygın olarak bilgisayarlı
+              tomografi (BT), göğüs röntgeni (GR) ve manyetik rezonans
+              görüntüleme (MRG) taraması gibi standart görüntüleme yöntemleri
+              ile gerçekleştirilmektedir. Bu proje, akciğer hastalıklarının
+              X-ray ve BT (Bilgisayarlı Tomografi) görüntülerinden tespit
+              edilmesi için hibrit bir Convolutional Neural Network (CNN) ve
+              Destek Vektör Makineleri (SVM) modeli geliştirmeyi amaçlamaktadır.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
