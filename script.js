@@ -1,169 +1,123 @@
-const filterInput = document.querySelector("#inputFilter");
-
-runEvents();
-
-function runEvents() {
-  filterInput.addEventListener("keyup", filter);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
+  // İsminizi yazdıran yazma efekti
   const nameElement = document.querySelector(".name");
-  const nameText = "İrem Nur,";
-  let index = 0;
+  if (nameElement) {
+    const nameText = "İrem Nur,";
+    let index = 0;
 
-  function typeEffect() {
-    if (index < nameText.length) {
-      nameElement.textContent += nameText.charAt(index);
-      index++;
-      setTimeout(typeEffect, 34);
-    }
-  }
-
-  typeEffect();
-});
-
-function filter(e) {
-  const filterValue = e.target.value.toLowerCase().trim();
-
-  const projectNameItems = document.querySelectorAll("li.project-item");
-
-  if (projectNameItems.length > 0) {
-    projectNameItems.forEach(function (project) {
-      if (project.textContent.toLowerCase().trim().includes(filterValue)) {
-        project.style.display = "block";
-      } else {
-        project.style.display = "none";
-      }
-    });
-  } else {
-    console.warn("Filtreleme yapmak için en az bir proje öğesi olmalıdır!");
-  }
-}
-
-document.getElementById("menu-icon").addEventListener("click", function () {
-  var navbar = document.querySelector(".navbar");
-  navbar.classList.toggle("active");
-});
-
-function time() {
-  const today = new Date();
-  let hours = today.getHours();
-  let minutes = today.getMinutes();
-  let seconds = today.getSeconds();
-
-  minutes = checkTime(minutes);
-  seconds = checkTime(seconds);
-
-  document.getElementById("clock").innerHTML =
-    hours + ":" + minutes + ":" + seconds;
-  setTimeout(time, 1000);
-}
-
-function checkTime(i) {
-  if (i < 10) {
-    i = "0" + i;
-  }
-  return i;
-}
-
-function morOrLess() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("btn");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Daha Fazla Göster";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Daha Az Göster";
-    moreText.style.display = "inline";
-  }
-}
-
-function sortList() {
-  var productList, i, switching, b, shouldSwitch;
-  productList = document.getElementById("project-product");
-  switching = true;
-  while (switching) {
-    switching = false;
-    b = productList.getElementsByTagName("LI");
-    for (i = 0; i < b.length - 1; i++) {
-      shouldSwitch = false;
-      if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
-        shouldSwitch = true;
-        break;
+    function typeEffect() {
+      if (index < nameText.length) {
+        nameElement.textContent += nameText.charAt(index);
+        index++;
+        setTimeout(typeEffect, 34);
       }
     }
-    if (shouldSwitch) {
-      b[i].parentNode.insertBefore(b[i + 1], b[i]);
-      switching = true;
-    }
-  }
-}
-
-function formValidate() {
-  if (document.contactForm.Name.value == "") {
-    alert("Lütfen İsminizi Giriniz.");
-    document.myForm.Name.focus();
-    return false;
+    typeEffect();
   }
 
-  if (document.contactForm.email.value == "") {
-    alert("Lütfen E-Mail Adresinizi Giriniz.");
-    document.myForm.email.focus();
-    return false;
-  }
-
-  var email = document.contactForm.email.value;
-  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailRegex.test(email)) {
-    alert("Lütfen geçerli bir E-Mail adresi giriniz.");
-    document.contactForm.email.focus();
-    return false;
-  }
-  if (document.contactForm.phone.value == "") {
-    alert("Lütfen Telefon Numaranızı Giriniz.");
-    document.myForm.phone.focus();
-    return false;
-  }
-
-  if (document.contactForm.mesage.value == "") {
-    alert("Lütfen Mesajınızı Giriniz.");
-    document.myForm.mesage.focus();
-    return false;
-  }
-
-  return true;
-}
-
-const images = document.querySelectorAll(".gallery img");
-let imgSrc;
-
-images.forEach((img) => {
-  img.addEventListener("click", (e) => {
-    imgSrc = e.target.src;
-    imgModal(imgSrc);
+  // Menü açma/kapama
+  document.getElementById("menu-icon").addEventListener("click", function () {
+    const navbar = document.querySelector(".navbar");
+    navbar.classList.toggle("active");
   });
-});
 
-let imgModal = (src) => {
-  const modal = document.createElement("div");
-  modal.setAttribute("class", "modal");
+  // Proje arama filtresi
+  const filterInput = document.querySelector("#inputFilter");
+  if (filterInput) {
+    filterInput.addEventListener("keyup", function (e) {
+      const filterValue = e.target.value.toLowerCase().trim();
+      const projectItems = document.querySelectorAll("li.project-item");
 
-  const newImage = document.createElement("img");
-  newImage.setAttribute("src", src);
+      projectItems.forEach((project) => {
+        const projectText = project.textContent.toLowerCase().trim();
+        if (projectText.includes(filterValue)) {
+          project.style.display = "block";
+        } else {
+          project.style.display = "none";
+        }
+      });
+    });
+  }
 
-  const closeBtn = document.createElement("i");
-  closeBtn.onclick = () => {
-    modal.remove();
+  // Projeleri alfabetik sıraya göre sıralama
+  function sortList() {
+    const productList = document.getElementById("project-product");
+    if (productList) {
+      let switching = true;
+      while (switching) {
+        switching = false;
+        const items = productList.getElementsByTagName("LI");
+        for (let i = 0; i < items.length - 1; i++) {
+          let shouldSwitch = false;
+          if (
+            items[i].innerHTML.toLowerCase() >
+            items[i + 1].innerHTML.toLowerCase()
+          ) {
+            shouldSwitch = true;
+            break;
+          }
+        }
+        if (shouldSwitch) {
+          items[i].parentNode.insertBefore(items[i + 1], items[i]);
+          switching = true;
+        }
+      }
+    }
+  }
+  const sortButton = document.querySelector(".btn");
+  if (sortButton) {
+    sortButton.addEventListener("click", sortList);
+  }
+
+  // Görselleri modal ile açma
+  const images = document.querySelectorAll(".gallery img");
+  let imgModal = (src) => {
+    const modal = document.createElement("div");
+    modal.setAttribute("class", "modal");
+
+    const newImage = document.createElement("img");
+    newImage.setAttribute("src", src);
+
+    const closeBtn = document.createElement("i");
+    closeBtn.onclick = () => {
+      modal.remove();
+    };
+
+    closeBtn.setAttribute("class", "bi bi-x-square closeBtn");
+
+    modal.append(newImage, closeBtn);
+
+    document.body.append(modal);
   };
 
-  closeBtn.setAttribute("class", "bi bi-x-square closeBtn");
+  if (images.length > 0) {
+    images.forEach((img) => {
+      img.addEventListener("click", (e) => {
+        imgModal(e.target.src);
+      });
+    });
+  }
 
-  modal.append(newImage, closeBtn);
+  // Zaman göstergesi
+  function time() {
+    const today = new Date();
+    let hours = today.getHours();
+    let minutes = today.getMinutes();
+    let seconds = today.getSeconds();
 
-  document.body.append(modal);
-};
+    minutes = checkTime(minutes);
+    seconds = checkTime(seconds);
+
+    const clockElement = document.getElementById("clock");
+    if (clockElement) {
+      clockElement.innerHTML = hours + ":" + minutes + ":" + seconds;
+    }
+    setTimeout(time, 1000);
+  }
+
+  function checkTime(i) {
+    return i < 10 ? "0" + i : i;
+  }
+
+  time();
+});

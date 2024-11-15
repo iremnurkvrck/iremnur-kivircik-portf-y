@@ -109,6 +109,10 @@ h1 {
     padding: 5px 5px;
   }
 
+  #menu-icon {
+    display: block;
+  }
+
   .navbar {
     display: none;
     position: absolute;
@@ -121,8 +125,9 @@ h1 {
     display: flex;
   }
 
-  #menu-icon {
-    display: block;
+  .clock {
+    margin-left: 0;
+    margin-top: 10px;
   }
 }
 .navbar a {
@@ -201,6 +206,7 @@ h1 {
 
 .home-image img {
   margin-left: 300px;
+
   max-width: 400px;
   height: auto;
   border-radius: 18px;
